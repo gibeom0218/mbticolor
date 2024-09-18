@@ -14,10 +14,11 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
+    "linebreak-style": ["error", "windows"],
     "react/function-component-definition": [
       2,
       {
-        "namedComponents": "function-declaration",
+        "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
     ],
@@ -25,6 +26,8 @@
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
-    "no-nested-ternary": 0
+    "no-nested-ternary": 0,
+    "import/no-unresolved": "off", // import 경로 문제 무시
+    "import/extensions": "off" // 파일 확장자 문제 무시
   }
 }

@@ -1,7 +1,13 @@
-import React from 'react';
+import { Reset } from 'styled-reset';
+import Router from './Router';
 
 const App = () => {
-  return <div className="text-red-700">안녕</div>;
+  return (
+    <>
+      <Reset />
+      <Router />
+    </>
+  );
 };
 
 export default App;
