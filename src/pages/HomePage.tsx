@@ -1,7 +1,9 @@
+import Header from '../components/Header';
+
 const HomePage = () => {
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className="flex pt-[24px] px-[16px] flex-col justify-end items-start gap-[16px] bg-white">
+      <Header />
     </div>
   );
 };
