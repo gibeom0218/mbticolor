@@ -2,6 +2,11 @@ const mbtiColors = [
   { code: '1326', type: 'ENTJ', color: '#9441FF' },
   { code: '1423', type: 'INFP', color: '#FF6F61' },
   { code: '2365', type: 'INTJ', color: '#6B5B93' },
+  { code: '2365', type: 'INTJ', color: '#6B5B93' },
+  { code: '2365', type: 'INTJ', color: '#6B5B93' },
+  { code: '2365', type: 'INTJ', color: '#6B5B93' },
+  { code: '2365', type: 'INTJ', color: '#6B5B93' },
+
   // 추가 데이터 예시...
 ];
 
@@ -10,7 +15,7 @@ const MbtiColorInfo = () => {
     <div className="flex w-[100%] flex-col items-start self-stretch">
       <button
         type="button"
-        className="flex h-[59px] py-[20px] pl-[24px] pr-[200px] items-center self-stretch text-[#464E5E] text-[16px] rounded-[8px] border-[2px] border-dashed border-[]  font-semibold"
+        className="flex h-[59px] py-[20px] pl-[24px] pr-[100px] items-center self-stretch text-[#464E5E] text-[16px] rounded-[8px] border-[2px] border-dashed border-[]  font-semibold"
       >
         + 새 컬러 등록하기
       </button>
