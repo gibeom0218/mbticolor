@@ -15,7 +15,7 @@ const MbtiColorInfo = () => {
     <div className="flex w-[100%] flex-col items-start self-stretch">
       <button
         type="button"
-        className="flex h-[59px] py-[20px] pl-[24px] pr-[100px] items-center self-stretch text-[#464E5E] text-[16px] rounded-[8px] border-[2px] border-dashed border-[]  font-semibold"
+        className="flex h-[59px] py-[20px] pl-[24px] pr-[100px] items-center self-stretch text-[#464E5E] text-[16px] rounded-[8px] border-[2px] border-dashed border-[]  font-semibold hover:bg-[#F5F7FB]"
       >
         + 새 컬러 등록하기
       </button>
