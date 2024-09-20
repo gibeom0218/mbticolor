@@ -13,12 +13,13 @@ const mbtiColors = [
 const MbtiColorInfo = () => {
   return (
     <div className="flex w-[100%] flex-col items-start self-stretch">
-      <button
+      <a
+        href="/assignColor"
         type="button"
-        className="flex h-[59px] py-[20px] pl-[24px] pr-[100px] items-center self-stretch text-[#464E5E] text-[16px] rounded-[8px] border-[2px] border-dashed border-[]  font-semibold hover:bg-[#F5F7FB]"
+        className="flex h-[59px] py-[20px] pl-[24px] pr-[100px] items-center self-stretch text-[#464E5E] text-[16px] rounded-[8px] border-[2px] border-dashed border-[#DEE3EC]  font-semibold hover:bg-[#F5F7FB]"
       >
         + 새 컬러 등록하기
-      </button>
+      </a>
       <ul className="flex flex-col w-[100%]">
         {mbtiColors.map(({ code, type, color }) => (
           <li key={code} className="flex list-none p-[16px] items-center gap-[16px] self-stretch justify-between">
