@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import useSelectedColorStore from '../store/selectedColorStore';
 import useSelectedMbtiStore from '../store/selectedMbtiStore';
 import checkMbti from '../util/checkMbti';
@@ -9,6 +10,8 @@ const AssignColorButton = () => {
   const handleAssignColor = () => {
     if (checkMbti(selectedMbti)) {
       console.log(selectedColor);
+    } else {
+      toast.error('mbti 항목을 모두 선택해주세요');
     }
   };
 
