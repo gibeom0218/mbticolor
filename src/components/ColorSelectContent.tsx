@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import SelectColorModal from './modal/SelectColorModal';
 import useSelectedColorStore from '../store/selectedColorStore';
 
@@ -11,6 +12,7 @@ const ColorSelectContent = () => {
   };
 
   const handleCloseModal = () => {
+    toast.success('색상이 선택되었습니다.');
     setIsOpenModal(false);
   };
 
