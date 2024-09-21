@@ -4,7 +4,7 @@ import mbtiCategories from '../constant/mbtiCategories';
 import useSelectedMbtiStore from '../store/selectedMbtiStore';
 
 const MbtiSelectContent = () => {
-  const { selectedMbti, setSelectedMbti } = useSelectedMbtiStore();
+  const { setSelectedMbti } = useSelectedMbtiStore();
 
   const [selectedOptions, setSelectedOptions] = useState<MbtiOptions>({
     EI: null,
@@ -23,7 +23,6 @@ const MbtiSelectContent = () => {
 
   useEffect(() => {
     setSelectedMbti(selectedOptions);
-    console.log(selectedMbti);
   }, [selectedOptions, setSelectedMbti]);
 
   return (
