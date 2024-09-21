@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HexColorPicker } from 'react-colorful';
+import useSelectedColorStore from '../../store/selectedColorStore';
 
 interface SelectColorModalProps {
   closeModal: () => void;
 }
 
 const SelectColorModal = ({ closeModal }: SelectColorModalProps) => {
-  const [color, setColor] = useState<string>('');
+  const { setSelectedColor } = useSelectedColorStore();
+  const [color, setColor] = useState<string>('#ffffff');
+
+  useEffect(() => {
+    // color 상태가 변경될 때 Zustand 스토어에 업데이트
+    setSelectedColor(color);
+  }, [color, setSelectedColor]);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
