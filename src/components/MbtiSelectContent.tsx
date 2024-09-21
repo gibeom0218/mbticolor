@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MbtiOptions } from '../types/mbtiOptions';
 import mbtiCategories from '../constant/mbtiCategories';
+import useSelectedMbtiStore from '../store/selectedMbtiStore';
 
 const MbtiSelectContent = () => {
+  const { selectedMbti, setSelectedMbti } = useSelectedMbtiStore();
+
   const [selectedOptions, setSelectedOptions] = useState<MbtiOptions>({
     EI: null,
     SN: null,
@@ -17,6 +20,11 @@ const MbtiSelectContent = () => {
       [category]: type, // 선택된 항목만 활성화
     }));
   };
+
+  useEffect(() => {
+    setSelectedMbti(selectedOptions);
+    console.log(selectedMbti);
+  }, [selectedOptions, setSelectedMbti]);
 
   return (
     <div className="flex flex-col w-[100%] gap-[20px]">

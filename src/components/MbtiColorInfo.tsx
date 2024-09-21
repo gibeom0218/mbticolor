@@ -2,10 +2,6 @@ const mbtiColors = [
   { code: '1326', type: 'ENTJ', color: '#9441FF' },
   { code: '1423', type: 'INFP', color: '#FF6F61' },
   { code: '2365', type: 'INTJ', color: '#6B5B93' },
-  { code: '2365', type: 'INTJ', color: '#6B5B93' },
-  { code: '2365', type: 'INTJ', color: '#6B5B93' },
-  { code: '2365', type: 'INTJ', color: '#6B5B93' },
-  { code: '2365', type: 'INTJ', color: '#6B5B93' },
 
   // 추가 데이터 예시...
 ];
