@@ -6,7 +6,6 @@ const Header = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterMbti(event.target.value);
-    console.log(filterMbti);
   };
 
   return (
