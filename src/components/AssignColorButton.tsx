@@ -21,6 +21,7 @@ const AssignColorButton = () => {
 
   const handleCloseModal = () => {
     setIsOpen(false);
+    //여기에 등록 api
   };
 
   return (
