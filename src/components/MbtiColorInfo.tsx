@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import getColorSurvey from '../api/getColorSurvey';
+
 const mbtiColors = [
   { code: '1326', type: 'ENTJ', color: '#9441FF' },
   { code: '1423', type: 'INFP', color: '#FF6F61' },
@@ -7,6 +11,13 @@ const mbtiColors = [
 ];
 
 const MbtiColorInfo = () => {
+  const [users, setUsers] = useState([]);
+  const [mbti, setMbti] = useState('');
+  const [page, setPage] = useState(1); // 페이지 초기값
+  const [limit, setLimit] = useState(10); // 한 페이지당 항목 수
+
+  const { data } = useQuery({ queryKey: ['getColorSurveys'], queryFn: () => getColorSurvey('', 10, 0) });
+
   return (
     <div className="flex w-[100%] flex-col items-start self-stretch">
       <a
