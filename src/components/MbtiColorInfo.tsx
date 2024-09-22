@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import getColorSurvey from '../api/getColorSurvey';
-
-const mbtiColors = [
-  { code: '1326', type: 'ENTJ', color: '#9441FF' },
-  { code: '1423', type: 'INFP', color: '#FF6F61' },
-  { code: '2365', type: 'INTJ', color: '#6B5B93' },
-
-  // 추가 데이터 예시...
-];
+import useFilterMbtiStore from '../store/filterMbtiStore';
+import { ColorSurvey, ColorSurveyInfo } from '../types/colorSurvey';
 
 const MbtiColorInfo = () => {
-  const [users, setUsers] = useState([]);
-  const [mbti, setMbti] = useState('');
-  const [page, setPage] = useState(1); // 페이지 초기값
-  const [limit, setLimit] = useState(10); // 한 페이지당 항목 수
+  const { filterMbti } = useFilterMbtiStore();
 
-  const { data } = useQuery({ queryKey: ['getColorSurveys'], queryFn: () => getColorSurvey('', 10, 0) });
+  const { data } = useQuery<ColorSurvey>({
+    queryKey: ['getColorSurveys', filterMbti],
+    queryFn: () => getColorSurvey(filterMbti || undefined, 10, 0),
+  });
 
   return (
     <div className="flex w-[100%] flex-col items-start self-stretch">
@@ -28,24 +21,28 @@ const MbtiColorInfo = () => {
         + 새 컬러 등록하기
       </a>
       <ul className="flex flex-col w-[100%]">
-        {mbtiColors.map(({ code, type, color }) => (
-          <li key={code} className="flex list-none p-[16px] items-center gap-[16px] self-stretch justify-between">
-            <div className="flex gap-[10px] items-center">
-              <p className="text-[#BFC8DA] text-[16px]">{code}</p>
-              <div className="inline-flex p-[8px] items-start gap-[8px] rounded-[8px] bg-gray-100 text-[#464E5E] text-[16px] font-semibold">
-                {type}
+        {data && data?.results.length > 0 ? (
+          data?.results.map((item: ColorSurveyInfo) => (
+            <li key={item.id} className="flex list-none p-[16px] items-center gap-[16px] self-stretch justify-between">
+              <div className="flex gap-[10px] items-center">
+                <p className="text-[#BFC8DA] text-[16px]">{item.id}</p>
+                <div className="inline-flex p-[8px] items-start gap-[8px] rounded-[8px] bg-gray-100 text-[#464E5E] text-[16px] font-semibold">
+                  {item.mbti}
+                </div>
               </div>
-            </div>
-            <div className="w-[100%] border-t-[2px] border-solid border-[#B0B0B0] mx-2" />
-            <div className="flex gap-[8px] items-center">
-              <div
-                className="w-[40px] h-[40px] rounded-[8px] border-[3px] border-solid border-[#E8E8E8] bg-[color]"
-                style={{ backgroundColor: color }}
-              />
-              <p className="text-[#BFC8DA] text-[16px]">{color}</p>
-            </div>
-          </li>
-        ))}
+              <div className="w-[100%] border-t-[2px] border-solid border-[#B0B0B0] mx-2" />
+              <div className="flex gap-[8px] items-center">
+                <div
+                  className="w-[40px] h-[40px] rounded-[8px] border-[3px] border-solid border-[#E8E8E8]"
+                  style={{ backgroundColor: item.colorCode }}
+                />
+                <p className="text-[#BFC8DA] text-[16px]">{item.colorCode}</p>
+              </div>
+            </li>
+          ))
+        ) : (
+          <li className="text-[#BFC8DA] text-[16px]">No data available.</li>
+        )}
       </ul>
     </div>
   );
