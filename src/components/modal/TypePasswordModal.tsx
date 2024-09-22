@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import usePassword from '../../store/passwordStore';
 
 interface TypePasswordModalProps {
   closeModal: () => void;
@@ -7,6 +8,7 @@ interface TypePasswordModalProps {
 const TypePasswordModal = ({ closeModal }: TypePasswordModalProps) => {
   const [password, setPassword] = useState<string>('');
   const [isValid, setIsValid] = useState<boolean>(false);
+  const { setUserPassword } = usePassword();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -14,6 +16,7 @@ const TypePasswordModal = ({ closeModal }: TypePasswordModalProps) => {
     // 숫자만 허용하고 4자리까지만 입력
     if (/^\d*$/.test(inputValue) && inputValue.length <= 4) {
       setPassword(inputValue);
+      setUserPassword(inputValue);
       // 4자리 숫자일 때만 유효성 검사 통과
       setIsValid(inputValue.length === 4);
     }

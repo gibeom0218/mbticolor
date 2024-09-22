@@ -1,6 +1,6 @@
 import api from './base';
 
-const postColorSurvey = async (mbti?: string, colorCode?: number, password?: number) => {
+const postColorSurvey = async (mbti?: string, colorCode?: string, password?: string) => {
   try {
     const response = await api.post('/api/color-surveys', {
       mbti,

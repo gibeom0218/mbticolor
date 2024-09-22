@@ -1,14 +1,13 @@
 import { create } from 'zustand';
 
 interface PasswordState {
-  password: string;
-  setPassword: (password: string) => void;
+  userPassword: string;
+  setUserPassword: (userPassword: string) => void;
 }
 
-// devtools를 사용하는 경우, 타입을 지정해줘야 합니다.
 const usePassword = create<PasswordState>((set) => ({
-  password: '',
-  setPassword: (password: string) => set({ password: password }),
+  userPassword: '',
+  setUserPassword: (userPassword) => set({ userPassword }), // 축약형 사용
 }));
 
 export default usePassword;

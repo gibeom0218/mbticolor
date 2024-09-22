@@ -4,12 +4,17 @@ import useSelectedColorStore from '../store/selectedColorStore';
 import useSelectedMbtiStore from '../store/selectedMbtiStore';
 import checkMbti from '../util/checkMbti';
 import TypePasswordModal from './modal/TypePasswordModal';
+import usePassword from '../store/passwordStore';
+import useAssignMbtiColorMutation from '../hooks/useAssignMbtiColorMutation';
 
 const AssignColorButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { selectedColor } = useSelectedColorStore();
   const { selectedMbti } = useSelectedMbtiStore();
+  const { selectedColor } = useSelectedColorStore();
+  const { userPassword } = usePassword();
+
+  const assignMbtiColorMutation = useAssignMbtiColorMutation();
 
   const handleAssignColor = () => {
     if (checkMbti(selectedMbti)) {
@@ -21,7 +26,12 @@ const AssignColorButton = () => {
 
   const handleCloseModal = () => {
     setIsOpen(false);
-    //여기에 등록 api
+    const mergedMbtiValue = `${selectedMbti.EI || ''}${selectedMbti.SN || ''}${selectedMbti.TF || ''}${selectedMbti.JP || ''}`;
+    assignMbtiColorMutation.mutate({
+      mbti: mergedMbtiValue,
+      colorCode: selectedColor,
+      password: userPassword,
+    });
   };
 
   return (
