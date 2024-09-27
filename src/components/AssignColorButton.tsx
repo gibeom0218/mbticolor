@@ -6,9 +6,10 @@ import checkMbti from '../util/checkMbti';
 import TypePasswordModal from './modal/TypePasswordModal';
 import usePassword from '../store/passwordStore';
 import useAssignMbtiColorMutation from '../hooks/useAssignMbtiColorMutation';
+import usePatchMbtiColorMutation from '../hooks/usePatchMbtiColorMutation';
 import { FunType } from '../types/funType';
 
-const AssignColorButton = ({ type }: FunType) => {
+const AssignColorButton = ({ type, id }: FunType) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { selectedMbti } = useSelectedMbtiStore();
@@ -16,6 +17,7 @@ const AssignColorButton = ({ type }: FunType) => {
   const { userPassword } = usePassword();
 
   const assignMbtiColorMutation = useAssignMbtiColorMutation();
+  const patchMbtiColorMutation = usePatchMbtiColorMutation();
 
   const handleAssignColor = () => {
     if (checkMbti(selectedMbti)) {
@@ -28,11 +30,20 @@ const AssignColorButton = ({ type }: FunType) => {
   const handleCloseModal = () => {
     setIsOpen(false);
     const mergedMbtiValue = `${selectedMbti.EI || ''}${selectedMbti.SN || ''}${selectedMbti.TF || ''}${selectedMbti.JP || ''}`;
-    assignMbtiColorMutation.mutate({
-      mbti: mergedMbtiValue,
-      colorCode: selectedColor,
-      password: userPassword,
-    });
+    if (id) {
+      patchMbtiColorMutation.mutate({
+        id,
+        mbti: mergedMbtiValue,
+        colorCode: selectedColor,
+        password: userPassword,
+      });
+    } else {
+      assignMbtiColorMutation.mutate({
+        mbti: mergedMbtiValue,
+        colorCode: selectedColor,
+        password: userPassword,
+      });
+    }
   };
 
   return (

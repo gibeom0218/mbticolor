@@ -22,7 +22,7 @@ const AssignColorPage = ({ type }: FunType) => {
       <AssignColorHeader type={type} />
       <MbtiSelectContent mbti={data?.mbti} />
       <ColorSelectContent colorCode={data?.colorCode} />
-      <AssignColorButton type={type} />
+      <AssignColorButton type={type} id={Number(id)} />
     </div>
   );
 };
