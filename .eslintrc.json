@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "rules": {
+    "linebreak-style": ["error", "windows"],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/react-in-jsx-scope": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "no-nested-ternary": 0,
+    "import/no-unresolved": "off", // import 경로 문제 무시
+    "import/extensions": "off", // 파일 확장자 문제 무시
+    "@typescript-eslint/no-unused-vars": "off", // 사용되지 않는 변수에 대한 규칙 추가
+    "@typescript-eslint/explicit-function-return-type": "off" // 함수 반환 타입 명시 규칙 끄기
+  }
+}
