@@ -1,12 +1,17 @@
+import { useNavigate } from 'react-router-dom'; // useNavigate 임포트
+
 interface SelectModifyDeleteModalProps {
   closeModal: () => void;
   handleDelete: () => void;
+  id: number;
 }
 
-const SelectModifyDeleteModal = ({ closeModal, handleDelete }: SelectModifyDeleteModalProps) => {
+const SelectModifyDeleteModal = ({ closeModal, handleDelete, id }: SelectModifyDeleteModalProps) => {
+  const navigate = useNavigate();
+
   const handleEdit = () => {
-    console.log('111111');
     closeModal();
+    navigate(`/modifyColor/${id}`);
   };
 
   return (

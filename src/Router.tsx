@@ -8,7 +8,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/assignColor" element={<AssignColorPage type="Assign" />} />
-        <Route path="/modifyColor" element={<AssignColorPage type="Modify" />} />
+        <Route path="/modifyColor/:id" element={<AssignColorPage type="Modify" />} />
       </Routes>
     </BrowserRouter>
   );

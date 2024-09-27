@@ -100,7 +100,7 @@ const MbtiColorInfo = () => {
       </ul>
       <div ref={ref} /> {/* 이 div가 뷰포트에 들어오면 다음 페이지를 불러옵니다 */}
       {isOpenModifyDeleteModal && (
-        <SelectModifyDeleteModal closeModal={handleCloseModifyDeleteModal} handleDelete={handleDelete} />
+        <SelectModifyDeleteModal closeModal={handleCloseModifyDeleteModal} handleDelete={handleDelete} id={deleteId} />
       )}
       {isOpenPasswordModal && <TypePasswordModal closeModal={handleClosePasswordModal} />}
     </div>
