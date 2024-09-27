@@ -31,6 +31,8 @@
     "import/no-unresolved": "off", // import 경로 문제 무시
     "import/extensions": "off", // 파일 확장자 문제 무시
     "@typescript-eslint/no-unused-vars": "off", // 사용되지 않는 변수에 대한 규칙 추가
-    "@typescript-eslint/explicit-function-return-type": "off" // 함수 반환 타입 명시 규칙 끄기
+    "@typescript-eslint/explicit-function-return-type": "off", // 함수 반환 타입 명시 규칙 끄기
+    "no-console": "off", // no-console 규칙 끄기
+    "@typescript-eslint/no-explicit-any": "off" // no-explicit-any 규칙 끄기
   }
 }
