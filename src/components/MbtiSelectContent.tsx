@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { MbtiOptions } from '../types/mbtiOptions';
 import mbtiCategories from '../constant/mbtiCategories';
 import useSelectedMbtiStore from '../store/selectedMbtiStore';
+import { MbtiSelectContentProps } from '../types/mbtiSelectContentProps';
 
-const MbtiSelectContent = () => {
+const MbtiSelectContent = ({ mbti }: MbtiSelectContentProps) => {
   const { setSelectedMbti } = useSelectedMbtiStore();
 
   const [selectedOptions, setSelectedOptions] = useState<MbtiOptions>({
@@ -20,6 +21,12 @@ const MbtiSelectContent = () => {
       [category]: type, // 선택된 항목만 활성화
     }));
   };
+
+  useEffect(() => {
+    if (mbti) {
+      setSelectedOptions({ EI: mbti[0], SN: mbti[1], TF: mbti[2], JP: mbti[3] });
+    }
+  }, [mbti]);
 
   useEffect(() => {
     setSelectedMbti(selectedOptions);
