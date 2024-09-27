@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import SelectColorModal from './modal/SelectColorModal';
 import useSelectedColorStore from '../store/selectedColorStore';
+import { ColorSelectContentProps } from '../types/colorSelectContentProps';
 
-const ColorSelectContent = () => {
+const ColorSelectContent = ({ colorCode }: ColorSelectContentProps) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const { selectedColor } = useSelectedColorStore();
+  const { selectedColor, setSelectedColor } = useSelectedColorStore();
+
+  useEffect(() => {
+    if (colorCode) {
+      setSelectedColor(colorCode);
+    }
+  }, [colorCode]);
 
   const handleOpenModal = () => {
     setIsOpenModal(true);

@@ -6,8 +6,9 @@ import checkMbti from '../util/checkMbti';
 import TypePasswordModal from './modal/TypePasswordModal';
 import usePassword from '../store/passwordStore';
 import useAssignMbtiColorMutation from '../hooks/useAssignMbtiColorMutation';
+import { FunType } from '../types/funType';
 
-const AssignColorButton = () => {
+const AssignColorButton = ({ type }: FunType) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { selectedMbti } = useSelectedMbtiStore();
@@ -41,7 +42,7 @@ const AssignColorButton = () => {
         type="button"
         className="flex px-[22px] py-[22px] justify-center items-center rounded-[16px] bg-[#464E5E] text-[24px] font-bold text-white"
       >
-        컬러 등록
+        {type === 'Assign' ? '컬러 등록' : '컬러 수정'}
       </button>
       {isOpen && <TypePasswordModal closeModal={handleCloseModal} />}
     </>

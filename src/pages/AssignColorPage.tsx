@@ -21,8 +21,8 @@ const AssignColorPage = ({ type }: FunType) => {
     <div className="flex flex-col h-screen px-[24px] py-[42px] tablet:px-[288px] gap-[50px]">
       <AssignColorHeader type={type} />
       <MbtiSelectContent mbti={data?.mbti} />
-      <ColorSelectContent />
-      <AssignColorButton />
+      <ColorSelectContent colorCode={data?.colorCode} />
+      <AssignColorButton type={type} />
     </div>
   );
 };
