@@ -15,7 +15,7 @@
   },
   "plugins": ["react", "prettier", "@typescript-eslint"],
   "rules": {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": "off",
     "react/function-component-definition": [
       2,
       {
