@@ -42,7 +42,7 @@ const MbtiSelectContent = ({ mbti }: MbtiSelectContentProps) => {
               key={item.type}
               type="button"
               onClick={() => handleSelect(category.category as keyof MbtiOptions, item.type)}
-              className={`flex rounded-[16px] border-[2px] border-solid h-[76px] py-[14px] px-[40px] justify-center items-center gap-[32px] hover:bg-[#F5F7FB]
+              className={`flex rounded-[16px] border-[2px] border-solid h-[76px] py-[14px] px-[10px] tablet:px-[40px] justify-center items-center gap-[32px] hover:bg-[#F5F7FB]
                 ${
                   selectedOptions[category.category as keyof MbtiOptions] === item.type
                     ? 'bg-[#464E5E] border-[#464E5E] ' // 선택된 항목 스타일

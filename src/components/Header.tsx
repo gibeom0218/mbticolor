@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex w-[100%] flex-col h-[150px] self-stretch rounded-[32px] justify-center items-center bg-[#F5F7FB] gap-2 tablet:w-[350px]">
+    <header className="flex py-4 w-[100%] flex-col h-[150px] self-stretch rounded-[32px] justify-center items-center bg-[#F5F7FB] gap-2 tablet:w-[350px]">
       <p className="text-[#464E5E] text-right text-[24px] font-normal">MBTI별</p>
       <p className="text-[#464E5E] text-right text-[24px] font-bold">좋아하는 컬러</p>
       <select
