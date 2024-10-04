@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
-      tablet: '944px',
+      tablet: '765px',
       // => @media (min-width: 944px) { ... }
+      pc: '1220px',
     },
   },
   plugins: [],
 };
-
